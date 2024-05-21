@@ -1,0 +1,27 @@
+.content-acueil
+  display: grid
+  gap: 2rem
+  margin: 0 3rem
+
+  .content-acueil-list
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    gap: 2rem
+    padding: 2rem
+    background-color: #F6F6F6
+    border-radius: 10px
+
+@media (max-width: 900px)
+  .content-acueil
+    .content-acueil-list
+      grid-template-columns: repeat(2, 1fr)
+
+@media (max-width: 700px)
+  .content-acueil
+    margin: 0 1rem
+
+    .content-acueil-list
+      grid-template-columns: 1fr
+      gap: 1rem
+      padding: 0
+      background-color: inherit

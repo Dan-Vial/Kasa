@@ -1,0 +1,40 @@
+.selected-nav
+  text-decoration: underline
+
+header
+  display: grid
+  grid-template-columns: max-content 1fr
+  justify-items: end
+  align-items: center
+  padding: 2rem 3rem
+  font-size: 1.5em
+  font-weight: 500
+
+  nav
+    display: grid
+    gap: 3rem
+    grid-auto-flow: column
+
+    a
+      color: #000000
+      text-decoration: none
+
+    .active
+      text-decoration: underline
+
+@media (max-width: 700px)
+  header
+    padding: 2rem 1rem
+
+@media (max-width: 500px)
+  header
+    font-size: 1em
+
+    img
+      width: 146px
+      height: 48px
+
+@media (max-width: 400px)
+  header
+    nav
+      gap: 1rem
