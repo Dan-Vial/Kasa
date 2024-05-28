@@ -8,8 +8,10 @@ function Collapses({ name, text }) {
     <div className='collapse'>
       <div className='bar'>
         <div>{name}</div>
-        <img
+        <input
           className={visible ? 'btn rot' : 'btn'}
+          type="image"
+          alt="Collapse button"
           src={collapse_btn}
           onClick={() => setVisible(!visible)}
           aria-expanded={visible}

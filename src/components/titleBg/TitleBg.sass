@@ -1,14 +1,15 @@
+@use "../layout/base" as *
+
 .title-bg
   display: grid
   justify-content: center
   align-content: center
   position: relative
   text-wrap: balance
-  font-size: 1.5em
-  font-weight: 700
-  color: #ffffff
   height: 223px
   mix-blend-mode: darken
+
+  @include font(1.5em, 700, #ffffff)
 
   img
     height: 100%

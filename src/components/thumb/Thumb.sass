@@ -1,15 +1,17 @@
+@use "../layout/base" as *
+
 .thumb
   cursor: pointer
   border: none
   border-radius: 10px
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(10, 10, 10, 0) 42%, rgba(4, 4, 4, 0.205) 99.99%, rgba(0, 0, 0, 0.5) 100%)
-  background-color: #FF6060
+  background-color: $base-color-primary
   text-decoration: none
-  color: #ffffff
   text-wrap: balance
-  font-weight: 700
   margin: 0px
   padding: 0px
+
+  @include font(1em, 700, #ffffff)
 
   img
     border-top-left-radius: 10px

@@ -1,10 +1,12 @@
+
 .carrousel
   display: grid
   justify-content: center
   align-content: center
   position: relative
-  height: 223px
+  height: 415px
   align-items: center
+  overflow: hidden
 
   img
     height: 100%
@@ -12,15 +14,38 @@
     object-fit: cover
     position: absolute
     z-index: -1
-    border-radius: 10px
+    border-radius: 25px
 
-  div
+    margin-right: 0%
+
+    transition: transform 0.6s ease-in-out
+
+  input
     position: absolute
     cursor: pointer
-    background-color: #ffffff
+    height: 6rem
 
   .left
+    transform: rotate(-90deg)
     left: 0
 
   .right
+    transform: rotate(90deg)
     right: 0
+
+  .numpicture
+    bottom: 1em
+    color: #ffffff
+    position: absolute
+    left: 50%
+    font-size: 1.5em
+
+  .hidden
+    width: 0
+    margin-right: -100%
+
+@media (max-width: 700px)
+  .carrousel
+    height: 255px
+    input
+      height: 3rem

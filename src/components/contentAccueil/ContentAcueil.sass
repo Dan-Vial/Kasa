@@ -1,3 +1,5 @@
+@use "../layout/base" as *
+
 .content-acueil
   display: grid
   gap: 2rem
@@ -8,7 +10,7 @@
     grid-template-columns: repeat(3, 1fr)
     gap: 2rem
     padding: 2rem
-    background-color: #F6F6F6
+    background-color: $base-color-secondary
     border-radius: 10px
 
 @media (max-width: 900px)
