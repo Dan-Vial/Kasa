@@ -7,3 +7,6 @@ $base-color-quaternary: #E3E3E3
   font-size: $size
   font-weight: $weight
   color: $color
+
+@mixin borderText($ep)
+  text-shadow: $ep $ep $ep rgb(0, 0, 0), (-$ep) (-$ep) $ep rgb(0, 0, 0), $ep (-$ep) $ep rgb(0, 0, 0), (-$ep) $ep $ep rgb(0, 0, 0), $ep 0 $ep rgb(0, 0, 0), (-$ep) 0 $ep rgb(0, 0, 0), 0 (-$ep) $ep rgb(0, 0, 0), 0 $ep $ep rgb(0, 0, 0)

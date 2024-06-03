@@ -1,9 +1,23 @@
-import Thumb from '../thumb/Thumb.jsx'
-import TitleBg from '../titleBg/TitleBg.jsx'
+import { useEffect, useState } from 'react'
+import Thumb from '@view/thumb/Thumb.jsx'
+import TitleBg from '@view/titleBg/TitleBg.jsx'
 import './ContentAcueil.sass'
 
 function ContentAcueil({ pageAcueil }) {
-  const { titlebg, logements } = pageAcueil
+  const { titlebg, getLogements } = pageAcueil
+  const [logements, setLogements] = useState([])
+
+  useEffect(() => {
+    async function fetching() {
+      try {
+        const res = await getLogements()
+        setLogements(await res)
+      } catch (error) {
+        console.log(error.message)
+      }
+    }
+    fetching()
+  }, [])
 
   return (
     <div className='content-acueil'>

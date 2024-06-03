@@ -1,57 +1,3 @@
-import { getLogements } from '../data/logements.jsx'
-import LogoDesktop from '../assets/logo_desktop.svg'
-import LogoFooter from '../assets/logo_footer.svg'
-import Logo404 from '../assets/404.svg'
-
-
-const header = {
-  logo: {
-    src: LogoDesktop,
-    alt: 'logo red Kasa'
-  },
-  nav: [
-    {
-      href: '/',
-      text: 'Accueil'
-    },
-    {
-      href: '/apropos',
-      text: 'A Propos'
-    },
-  ],
-}
-
-const footer = {
-  logo: {
-    src: LogoFooter,
-    alt: 'logo white Kasa'
-  },
-  text: '© 2020 Kasa. All rights reserved'
-}
-
-const contentPageError = {
-  logo: {
-    src: Logo404,
-    alt: 'logo Error: 404'
-  },
-  text: 'Oups! La page que vous demandez n\'existe pas.',
-  link: {
-    href: '/',
-    text: 'Retourner sur la page d’accueil'
-  }
-}
-
-const pageAcueil = {
-  titlebg: {
-    img: {
-      src: '/images/img1.png',
-      alt: ''
-    },
-    text: 'Chez vous, partout et ailleurs'
-  },
-  logements: await getLogements()
-}
-
 const pageApropos = {
   titlebg: {
     img: {
@@ -80,21 +26,4 @@ const pageApropos = {
   ]
 }
 
-const pageLogement = {
-  collapses: [
-    {
-      name: '',
-    },
-    {
-      name: '',
-    },
-  ],
-}
-
-export {
-  header,
-  footer,
-  contentPageError,
-  pageAcueil,
-  pageApropos,
-};
+export default pageApropos

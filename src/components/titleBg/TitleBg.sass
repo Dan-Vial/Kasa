@@ -9,9 +9,13 @@
   height: 223px
   mix-blend-mode: darken
 
-  @include font(1.5em, 700, #ffffff)
+  @include font(2em, 700, #ffffff)
 
-  img
+  @media (max-width: 900px)
+    height: 111px
+    font-size: 1em
+
+  &-img
     height: 100%
     width: 100%
     object-fit: cover
@@ -20,11 +24,7 @@
     border-radius: 10px
     filter: brightness(60%)
 
-  h2
+  &-h2
     margin-left: 1rem
     margin-right: 1rem
-
-@media (max-width: 700px)
-  .title-bg
-    height: 111px
-    font-size: 1em
+    @include borderText(1px)

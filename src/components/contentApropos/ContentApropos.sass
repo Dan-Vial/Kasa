@@ -3,14 +3,13 @@
   gap: 2rem
   margin: 0 3rem
 
-  .content-apropos-list
+  @media (max-width: 700px)
+    margin: 0 1rem
+
+  &-list
     display: grid
     gap: 1rem
 
-@media (max-width: 700px)
-  .content-apropos
-    margin: 0 1rem
-
-    .content-apropos-list
+    @media (max-width: 700px)
       gap: 1rem
       padding: 0

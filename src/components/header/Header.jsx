@@ -24,14 +24,14 @@ function Header({ header }) {
 
   return (
     <>
-      <header>
-        <img
+      <header className='header'>
+        <img className='header-img'
           src={header.logo.src}
           alt={header.logo.alt}
         />
-        <nav>
+        <nav className='header-nav'>
           {header.nav.map((route, index) =>
-            <Link key={index} to={route.href} onClick={() => handleClickSelectedNav(index)} className={selectedNav[index] ? 'selected-nav' : ''}>{route.text}</Link>
+            <Link key={index} to={route.href} onClick={() => handleClickSelectedNav(index)} className={`header-nav-a ${selectedNav[index] ? 'header-nav-a__active' : ''}`}>{route.text}</Link>
           )}
         </nav>
       </header>

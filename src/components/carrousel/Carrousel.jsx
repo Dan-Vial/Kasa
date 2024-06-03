@@ -1,9 +1,11 @@
 import './Carrousel.sass'
-import collapse_btn from '../../assets/collapse_btn.svg'
-import { useState } from 'react'
+import collapse_btn from '@assets/collapse_btn.svg'
+import { useEffect, useState } from 'react'
 
 function Carrousel({ pictures }) {
   const [positionInArray, setPositionInArray] = useState(0);
+  const [debouncedValue, setDebouncedValue] = useState(true);
+
 
   function changeLeft() {
     if (positionInArray === 0) {
@@ -21,40 +23,82 @@ function Carrousel({ pictures }) {
     }
   }
 
+  function slide(pos) {
+    if (pos === positionInArray) return 'carrousel-slide-img__selected'
+
+    if (positionInArray === 1 && pos === 0) return 'carrousel-slide-img__left'
+    if (positionInArray === pictures.length - 2 && pos === pictures.length - 1) return 'carrousel-slide-img__right carrousel-slide-img__down'
+
+    if (positionInArray === 0 && pos === pictures.length - 1) return 'carrousel-slide-img__left'
+    if (positionInArray === pictures.length - 1 && pos === 0) return 'carrousel-slide-img__right carrousel-slide-img__up'
+
+    if (pos > positionInArray) {
+      if (pos === pictures.length - 1 || pos === 0) return 'carrousel-slide-img__left carrousel-slide-img__opac'
+      return 'carrousel-slide-img__right'
+    }
+
+    if (pos < positionInArray) {
+      if (pos === pictures.length - 1 || pos === 0) return 'carrousel-slide-img__right carrousel-slide-img__opac'
+      return 'carrousel-slide-img__left'
+    }
+  }
+
+  function debounce(callback, delay = 1000) {
+    let debounceInterval;
+    if (debouncedValue) {
+      setDebouncedValue(false)
+      callback()
+      debounceInterval = setInterval(() => {
+        setDebouncedValue(true)
+        clearInterval(debounceInterval)
+      }, delay)
+    }
+  }
+
+  if (pictures.length > 1) {
+    useEffect(() => {
+      const animInterval = setInterval(() => {
+        changeRight()
+      }, 5000)
+
+      return () => {
+        clearInterval(animInterval)
+      };
+    }, [positionInArray]);
+  }
+
   return (
     <div className='carrousel'>
       {
         pictures.length === 1 ? '' :
           <>
             <input
-              className='left'
+              className='carrousel-input carrousel-input__left'
               type="image"
               alt="Left"
               src={collapse_btn}
-              onClick={changeLeft}
+              onClick={() => debounce(changeLeft)}
             />
 
-            <div className='numpicture'>{`${positionInArray + 1}/${pictures.length}`}</div>
+            <div className='carrousel-numpicture'>{`${positionInArray + 1}/${pictures.length}`}</div>
 
             <input
-              className='right'
+              className='carrousel-input carrousel-input__right'
               type="image"
               alt="Right"
               src={collapse_btn}
-              onClick={changeRight}
+              onClick={() => debounce(changeRight)}
             />
           </>
       }
 
-      {
-        pictures.map((picture, index) =>
-          <img className={positionInArray === index ? '' : 'hidden'} key={index} src={picture} alt={(picture.split('/')).pop()} />
-        )
-      }
-
-      {/* <img className='hidden' src={pictures[positionInArray]} alt={(pictures[positionInArray].split('/')).pop()} />
-      <img src={pictures[positionInArray]} alt={(pictures[positionInArray].split('/')).pop()} /> */}
-
+      <div className='carrousel-slide' >
+        {
+          pictures.map((picture, index) =>
+            <img className={`carrousel-slide-img ${slide(index)}`} key={index} src={picture} alt={(picture.split('/')).pop()} />
+          )
+        }
+      </div>
     </div>
   )
 }

@@ -6,14 +6,14 @@ function ErrorPage({ contentPageError, error }) {
   const { logo, text, link } = contentPageError
   // console.error(error.error)
   return (
-    <div id="error-page">
-      <img
+    <div id="error-page" className="error-page">
+      <img className="error-page-img"
         src={logo.src}
         alt={logo.alt}
       />
-      <p>{text}</p>
+      <p className="error-page-p">{text}</p>
       {/* <p>{error.statusText}</p> */}
-      <Link to={link.href}>{link.text}</Link>
+      <Link className="error-page-a" to={link.href}>{link.text}</Link>
     </div>
   );
 }

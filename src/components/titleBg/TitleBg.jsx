@@ -1,13 +1,13 @@
 import './TitleBg.sass'
 
-function HeaderContent({ titlebg }) {
+function TitleBg({ titlebg }) {
   const { text, img } = titlebg
   return (
     <div className='title-bg'>
-      <img src={img.src} alt={img.alt} />
-      <h2>{text}</h2>
+      <img className='title-bg-img' src={img.src} alt={img.alt} />
+      <h2 className='title-bg-h2'>{text}</h2>
     </div>
   )
 }
 
-export default HeaderContent
+export default TitleBg

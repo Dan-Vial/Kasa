@@ -1,15 +1,15 @@
 import { useState } from 'react'
 import './Collapse.sass'
-import collapse_btn from '../../assets/collapse_btn.svg'
+import collapse_btn from '@assets/collapse_btn.svg'
 
 function Collapses({ name, text }) {
   const [visible, setVisible] = useState(false);
   return (
     <div className='collapse'>
-      <div className='bar'>
+      <div className='collapse-bar'>
         <div>{name}</div>
         <input
-          className={visible ? 'btn rot' : 'btn'}
+          className={visible ? 'collapse-btn collapse-btn__rot' : 'collapse-btn'}
           type="image"
           alt="Collapse button"
           src={collapse_btn}
@@ -18,9 +18,9 @@ function Collapses({ name, text }) {
           aria-controls={`collapse-${name}`}
         />
       </div>
-      <div className={visible ? 'collapse-text anim' : 'collapse-text'}>
-        <div id={`collapse-${name}`} className='text'>
-          <div>{text}</div>
+      <div className={visible ? 'collapse-content collapse-content__anim' : 'collapse-content'}>
+        <div id={`collapse-${name}`} className='collapse-content-text'>
+          <div className='collapse-content-text-margin'>{text}</div>
         </div>
       </div>
 

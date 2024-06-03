@@ -4,19 +4,20 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from 'react-router-dom'
-import ErrorPage from './routes/error-page.jsx'
-import Apropos from './routes/Apropos.jsx'
-import Accueil from './routes/Accueil.jsx'
-import Logements from './routes/Logements.jsx'
-import { getLogements } from './data/logements.jsx'
 
-const logements = await getLogements();
+import ErrorPage_c from '@controller/error-page.c.jsx'
+import Apropos_c from '@controller/Apropos.c.jsx'
+import Accueil_c from '@controller/Accueil.c.jsx'
+import Logements_c from '@controller/Logements.c.jsx'
+import { getLogements } from '@model/logements.jsx'
+
+const logements = await getLogements()
 let routesLogements = []
 for (const logement of logements) {
   routesLogements.push(
     {
       path: `/logements/${logement.id}`,
-      element: <Logements key={logement.id} logement={logement} />,
+      element: <Logements_c key={logement.id} logement={logement} />,
     },
   )
 }
@@ -24,12 +25,12 @@ for (const logement of logements) {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Accueil />,
-    errorElement: <ErrorPage />,
+    element: <Accueil_c />,
+    errorElement: <ErrorPage_c />,
   },
   {
     path: "/apropos",
-    element: <Apropos />,
+    element: <Apropos_c />,
   },
   ...routesLogements,
 ]);

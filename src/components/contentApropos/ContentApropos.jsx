@@ -1,6 +1,6 @@
 import './ContentApropos.sass'
-import TitleBg from '../titleBg/TitleBg.jsx'
-import Collapse from '../collapse/Collapse.jsx'
+import TitleBg from '@view/titleBg/TitleBg.jsx'
+import Collapse from '@view/collapse/Collapse.jsx'
 
 function ContentApropos({ pageApropos }) {
   const { titlebg, collapses } = pageApropos

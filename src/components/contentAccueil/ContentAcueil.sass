@@ -5,7 +5,10 @@
   gap: 2rem
   margin: 0 3rem
 
-  .content-acueil-list
+  @media (max-width: 700px)
+    margin: 0 1rem
+
+  &-list
     display: grid
     grid-template-columns: repeat(3, 1fr)
     gap: 2rem
@@ -13,16 +16,10 @@
     background-color: $base-color-secondary
     border-radius: 10px
 
-@media (max-width: 900px)
-  .content-acueil
-    .content-acueil-list
+    @media (max-width: 900px)
       grid-template-columns: repeat(2, 1fr)
 
-@media (max-width: 700px)
-  .content-acueil
-    margin: 0 1rem
-
-    .content-acueil-list
+    @media (max-width: 700px)
       grid-template-columns: 1fr
       gap: 1rem
       padding: 0

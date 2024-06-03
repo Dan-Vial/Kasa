@@ -1,10 +1,5 @@
 .collapse
-  .collapse-text
-    display: grid
-    grid-template-rows: 0fr
-    transition: grid-template-rows 0.3s ease-out
-
-  .bar
+  &-bar
     display: flex
     justify-content: space-between
     background-color: #FF6060
@@ -14,29 +9,32 @@
     border-radius: 5px
     padding: 0.5rem
 
-  .text
-    margin-top: 0
-    background-color: #F6F6F6
-    overflow: hidden
+    @media (max-width: 700px)
+      font-size: 1em
 
-    div
-      margin: 1rem
+  &-content
+    display: grid
+    grid-template-rows: 0fr
+    transition: grid-template-rows 0.3s ease-out
 
-  .anim
-    grid-template-rows: 1fr
+    &-text
+      margin-top: 0
+      background-color: #F6F6F6
+      overflow: hidden
 
-  .btn
+      &-margin
+        margin: 1rem
+
+    &__anim
+      grid-template-rows: 1fr
+
+  &-btn
     padding: 0 1rem
     height: 1.5rem
     cursor: pointer
 
-  .rot
-    transform: rotate(180deg)
-
-@media (max-width: 700px)
-  .collapse
-    .bar
-      font-size: 1em
-
-    .btn
+    @media (max-width: 700px)
       height: 1rem
+
+    &__rot
+      transform: rotate(180deg)

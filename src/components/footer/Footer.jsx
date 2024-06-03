@@ -3,7 +3,7 @@ import './Footer.sass'
 function Footer({ footer }) {
   return (
     <>
-      <footer>
+      <footer className='footer'>
         <img
           src={footer.logo.src}
           alt={footer.logo.alt}
