@@ -3,7 +3,7 @@ import './Collapse.sass'
 import collapse_btn from '@assets/collapse_btn.svg'
 
 function Collapses({ name, text }) {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(false)
   return (
     <div className='collapse'>
       <div className='collapse-bar'>

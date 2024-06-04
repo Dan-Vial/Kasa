@@ -3,7 +3,7 @@
 const urlString = `http://${location.host}`
 
 async function fetching(routeName, opts = {}) {
-  return await fetch(`${urlString}/${routeName}`, opts);
+  return await fetch(`${urlString}/${routeName}`, opts)
 }
 
 // function useLogements() {

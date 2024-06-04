@@ -24,16 +24,16 @@ for (const logement of logements) {
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Accueil_c />,
     errorElement: <ErrorPage_c />,
   },
   {
-    path: "/apropos",
+    path: '/apropos',
     element: <Apropos_c />,
   },
   ...routesLogements,
-]);
+])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

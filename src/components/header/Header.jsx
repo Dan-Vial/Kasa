@@ -8,17 +8,17 @@ function Header({ header }) {
   for (const [key, navLink] of header.nav.entries()) {
     if (navLink.href === location.pathname) {
       arrSelectedNav[key] = true
-      break;
+      break
     }
   }
 
-  const [selectedNav, setSelectedNav] = useState(arrSelectedNav);
+  const [selectedNav, setSelectedNav] = useState(arrSelectedNav)
 
   function handleClickSelectedNav(index) {
-    const nextSelectedNav = [...selectedNav];
+    const nextSelectedNav = [...selectedNav]
     if (!nextSelectedNav[index]) {
-      nextSelectedNav[index] = !nextSelectedNav[index];
-      setSelectedNav(nextSelectedNav);
+      nextSelectedNav[index] = !nextSelectedNav[index]
+      setSelectedNav(nextSelectedNav)
     }
   }
 

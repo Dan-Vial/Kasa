@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 import './ContentError.sass'
 
 
@@ -15,7 +15,7 @@ function ErrorPage({ contentPageError, error }) {
       {/* <p>{error.statusText}</p> */}
       <Link className="error-page-a" to={link.href}>{link.text}</Link>
     </div>
-  );
+  )
 }
 
 

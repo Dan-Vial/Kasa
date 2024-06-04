@@ -3,8 +3,8 @@ import collapse_btn from '@assets/collapse_btn.svg'
 import { useEffect, useState } from 'react'
 
 function Carrousel({ pictures }) {
-  const [positionInArray, setPositionInArray] = useState(0);
-  const [debouncedValue, setDebouncedValue] = useState(true);
+  const [positionInArray, setPositionInArray] = useState(0)
+  const [debouncedValue, setDebouncedValue] = useState(true)
 
 
   function changeLeft() {
@@ -44,7 +44,7 @@ function Carrousel({ pictures }) {
   }
 
   function debounce(callback, delay = 1000) {
-    let debounceInterval;
+    let debounceInterval
     if (debouncedValue) {
       setDebouncedValue(false)
       callback()
@@ -63,8 +63,8 @@ function Carrousel({ pictures }) {
 
       return () => {
         clearInterval(animInterval)
-      };
-    }, [positionInArray]);
+      }
+    }, [positionInArray])
   }
 
   return (
